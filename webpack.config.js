@@ -10,7 +10,7 @@ var config = {
   entry: path.resolve(PATHS.src, 'main.js'),
   output: {
     path: PATHS.dist,
-    filename: 'bundle.js'
+    filename: 'bundle.js',
   },
   module: {
     loaders: [
@@ -18,10 +18,14 @@ var config = {
         test: /.jsx?$/,
         include: PATHS.src,
         loaders: [
-          'babel?cacheDirectory'
+          'babel?cacheDirectory',
         ],
-      }
-    ]
+      },
+      {
+        test: /\.json$/,
+        loader: 'json',
+      },
+    ],
   },
 };
 

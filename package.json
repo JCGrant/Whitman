@@ -1,24 +1,16 @@
 {
-  "name": "redux-basics",
+  "name": "whitman",
   "version": "1.0.0",
-  "description": "Learning the basics of Redux.",
+  "description": "Poem generator",
   "main": "",
   "scripts": {
     "dev": "./node_modules/webpack-dev-server/bin/webpack-dev-server.js --progress --colors"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/jcgrant/Redux-Basics.git"
-  },
   "keywords": [
-    "Redux",
-    "React"
+    "poem", "generator"
   ],
   "author": "JCGrant",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/jcgrant/Redux-Basics/issues"
-  },
   "dependencies": {
     "react": "^15.3.0",
     "react-dom": "^15.3.0"
@@ -28,6 +20,7 @@
     "babel-loader": "^6.2.5",
     "babel-preset-es2015": "^6.13.2",
     "babel-preset-react": "^6.11.1",
+    "json-loader": "^0.5.4",
     "webpack": "^1.13.1",
     "webpack-dev-server": "^1.14.1"
   }
