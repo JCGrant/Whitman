@@ -19,17 +19,33 @@ const TYPES_MAP = {
 const choice = (list) => list[Math.floor(Math.random() * list.length)];
 
 
+const handleVerb = (verb) => {
+  if (verb.endsWith('s')) {
+    verb += 'e';
+  }
+  verb += 's';
+  return verb;
+};
+
+
+const handleToken = (token) => {
+  if (TYPES_MAP.hasOwnProperty(token)) {
+    let word = choice(TYPES_MAP[token]);
+    if (token === '/verb') {
+      word = handleVerb(word);
+    }
+    return word;
+  }
+  return token;
+};
+
+
 const parseRow = (row) => {
   return row
     .split(' ')
-    .map((token) => {
-      if (TYPES_MAP.hasOwnProperty(token)) {
-        return choice(TYPES_MAP[token]);
-      }
-      return token;
-    })
+    .map(handleToken)
     .join(' ');
-}
+};
 
 
 const App = () => {

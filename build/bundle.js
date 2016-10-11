@@ -85,13 +85,27 @@
 	  return list[Math.floor(Math.random() * list.length)];
 	};
 
-	var parseRow = function parseRow(row) {
-	  return row.split(' ').map(function (token) {
-	    if (TYPES_MAP.hasOwnProperty(token)) {
-	      return choice(TYPES_MAP[token]);
+	var handleVerb = function handleVerb(verb) {
+	  if (verb.endsWith('s')) {
+	    verb += 'e';
+	  }
+	  verb += 's';
+	  return verb;
+	};
+
+	var handleToken = function handleToken(token) {
+	  if (TYPES_MAP.hasOwnProperty(token)) {
+	    var word = choice(TYPES_MAP[token]);
+	    if (token === '/verb') {
+	      word = handleVerb(word);
 	    }
-	    return token;
-	  }).join(' ');
+	    return word;
+	  }
+	  return token;
+	};
+
+	var parseRow = function parseRow(row) {
+	  return row.split(' ').map(handleToken).join(' ');
 	};
 
 	var App = function App() {
